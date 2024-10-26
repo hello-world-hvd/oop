@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-50 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-xl p-8 max-w-4xl w-full">
+        <h1 class="text-3xl font-bold mb-6 text-center text-blue-800">Edit Your Doctor Profile</h1>
+        <form id="profileForm" class="space-y-6">
+            <div class="space-y-4">
+                <h2 class="text-xl font-semibold text-blue-700">Personal Information</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out" required aria-describedby="nameError">
+                        <p id="nameError" class="mt-1 text-sm text-red-600 hidden">Please enter your full name</p>
+                    </div>
+                    <div>
+                        <label for="specialty" class="block text-sm font-medium text-gray-700">Medical Specialty</label>
+                        <input type="text" id="specialty" name="specialty" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out" required aria-describedby="specialtyError">
+                        <p id="specialtyError" class="mt-1 text-sm text-red-600 hidden">Please enter your medical specialty</p>
+                    </div>
+                </div>
+                <div>
+                    <label for="bio" class="block text-sm font-medium text-gray-700">Professional Bio</label>
+                    <textarea id="bio" name="bio" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out" aria-describedby="bioError"></textarea>
+                    <p id="bioError" class="mt-1 text-sm text-red-600 hidden">Bio is too long (max 500 characters)</p>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h2 class="text-xl font-semibold text-blue-700">Contact Details</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out" required aria-describedby="emailError">
+                        <p id="emailError" class="mt-1 text-sm text-red-600 hidden">Please enter a valid email address</p>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Office Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out" aria-describedby="phoneError">
+                        <p id="phoneError" class="mt-1 text-sm text-red-600 hidden">Please enter a valid phone number</p>
+                    </div>
+                </div>
+                <div>
+                    <label for="address" class="block text-sm font-medium text-gray-700">Clinic Address</label>
+                    <input type="text" id="address" name="address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out" aria-describedby="addressError">
+                    <p id="addressError" class="mt-1 text-sm text-red-600 hidden">Please enter a valid clinic address</p>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h2 class="text-xl font-semibold text-blue-700">Professional Information</h2>
+                <div>
+                    <label for="education" class="block text-sm font-medium text-gray-700">Education</label>
+                    <input type="text" id="education" name="education" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out" aria-describedby="educationError">
+                    <p id="educationError" class="mt-1 text-sm text-red-600 hidden">Please enter your educational background</p>
+                </div>
+                <div>
+                    <label for="experience" class="block text-sm font-medium text-gray-700">Years of Experience</label>
+                    <input type="number" id="experience" name="experience" min="0" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out" aria-describedby="experienceError">
+                    <p id="experienceError" class="mt-1 text-sm text-red-600 hidden">Please enter a valid number of years</p>
+                </div>
+                <div>
+                    <label for="licenses" class="block text-sm font-medium text-gray-700">Medical Licenses</label>
+                    <input type="text" id="licenses" name="licenses" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out" aria-describedby="licensesError">
+                    <p id="licensesError" class="mt-1 text-sm text-red-600 hidden">Please enter your medical license information</p>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h2 class="text-xl font-semibold text-blue-700">Consultation Preferences</h2>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="virtualConsultation" name="virtualConsultation" class="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out">
+                        <label for="virtualConsultation" class="ml-2 block text-sm text-gray-700">Offer Virtual Consultations</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="emergencyAvailability" name="emergencyAvailability" class="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out">
+                        <label for="emergencyAvailability" class="ml-2 block text-sm text-gray-700">Available for Emergency Consultations</label>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h2 class="text-xl font-semibold text-blue-700">Profile Picture</h2>
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <img id="profilePreview" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&h=256&q=80" alt="Profile Preview" class="h-24 w-24 rounded-full object-cover">
+                    </div>
+                    <div>
+                        <label for="profilePicture" class="block text-sm font-medium text-gray-700">Upload new picture</label>
+                        <input type="file" id="profilePicture" name="profilePicture" accept="image/*" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition duration-150 ease-in-out" aria-describedby="profilePictureError">
+                        <p id="profilePictureError" class="mt-1 text-sm text-red-600 hidden">Please select a valid image file</p>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h2 class="text-xl font-semibold text-blue-700">Change Password</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="currentPassword" class="block text-sm font-medium text-gray-700">Current Password</label>
+                        <input type="password" id="currentPassword" name="currentPassword" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out" required aria-describedby="currentPasswordError">
+                        <p id="currentPasswordError" class="mt-1 text-sm text-red-600 hidden">Please enter your current password</p>
+                    </div>
+                    <div>
+                        <label for="newPassword" class="block text-sm font-medium text-gray-700">New Password</label>
+                        <input type="password" id="newPassword" name="newPassword" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out" required aria-describedby="newPasswordError">
+                        <p id="newPasswordError" class="mt-1 text-sm text-red-600 hidden">Password must be at least 8 characters long</p>
+                    </div>
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm New Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-150 ease-in-out" required aria-describedby="confirmPasswordError">
+                        <p id="confirmPasswordError" class="mt-1 text-sm text-red-600 hidden">Passwords do not match</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-5">
+                <button type="submit" class="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out transform hover:scale-105">Update Doctor Profile</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('profilePicture').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profilePreview').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Implement form submission logic here
+            alert('Doctor profile updated successfully!');
+        });
+
+        // Add more JavaScript for form validation and interactivity as needed
+    </script>
+</body>
+</html>
